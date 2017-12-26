@@ -13,6 +13,7 @@ return[
     'Password'=>'密码',
     'RememberMe'=>'记住我的登录状态',
     'MyZone'=>'个人空间',
+    'Friends'=>'朋友圈',
     'RePassword'=>'重复密码',
     'VerifyCode'=>'验证码',
     'The repassword is different from password.'=>'两次输入的密码不一致',

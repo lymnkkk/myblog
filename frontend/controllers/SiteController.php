@@ -154,6 +154,14 @@ class SiteController extends BaseController
         return $this->render('myzone');
     }
 
+    //朋友圈
+    public function actionFriends()
+    {
+
+        return $this->render('friends');
+    }
+
+
 
     /**
      * Signs user up.

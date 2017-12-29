@@ -11,14 +11,10 @@ use Yii;
  * @property integer $id
  * @property integer $fans
  * @property integer $idol
- *
-<<<<<<< HEAD
- * @property User $fans0
- * @property User $idol0
-=======
+
+
  * @property UserModel $fans0
  * @property UserModel $idol0
->>>>>>> 8b4a464f9c602228e37c0de20043a6ceb7a2df65
  */
 class FansModel extends BaseModel
 {
@@ -38,13 +34,13 @@ class FansModel extends BaseModel
         return [
             [['fans', 'idol'], 'required'],
             [['fans', 'idol'], 'integer'],
-<<<<<<< HEAD
+
             [['fans'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['fans' => 'id']],
             [['idol'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['idol' => 'id']],
-=======
+
             [['fans'], 'exist', 'skipOnError' => true, 'targetClass' => UserModel::className(), 'targetAttribute' => ['fans' => 'id']],
             [['idol'], 'exist', 'skipOnError' => true, 'targetClass' => UserModel::className(), 'targetAttribute' => ['idol' => 'id']],
->>>>>>> 8b4a464f9c602228e37c0de20043a6ceb7a2df65
+
         ];
     }
 
@@ -65,11 +61,11 @@ class FansModel extends BaseModel
      */
     public function getFans0()
     {
-<<<<<<< HEAD
+
         return $this->hasOne(User::className(), ['id' => 'fans']);
-=======
+
         return $this->hasOne(UserModel::className(), ['id' => 'fans']);
->>>>>>> 8b4a464f9c602228e37c0de20043a6ceb7a2df65
+
     }
 
     /**
@@ -77,10 +73,10 @@ class FansModel extends BaseModel
      */
     public function getIdol0()
     {
-<<<<<<< HEAD
+
         return $this->hasOne(User::className(), ['id' => 'idol']);
-=======
+
         return $this->hasOne(UserModel::className(), ['id' => 'idol']);
->>>>>>> 8b4a464f9c602228e37c0de20043a6ceb7a2df65
+
     }
 }

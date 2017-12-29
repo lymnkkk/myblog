@@ -25,7 +25,6 @@
             <?=$form->field($model,'cat_id')->dropDownList($cat)?>
 
 
-
             <?= $form->field($model, 'label_img')->widget('common\widgets\file_upload\FileUpload',[
                 'config'=>[
                 ]

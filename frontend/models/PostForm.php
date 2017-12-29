@@ -66,6 +66,7 @@ class PostForm extends Model{
         ];
     }
 
+    //获取文章列表
     public static  function  getList($cond, $curPage=1, $pageSize=5, $orderBy= ['id'=>SORT_DESC])
     {
         $model=new PostModel();
@@ -111,7 +112,7 @@ class PostForm extends Model{
         $transaction=Yii::$app->db->beginTransaction();
         try{
             $model=new PostModel();
-           $model01=new FeedForm();
+
             $model->setAttributes($this->attributes);
             $model->summary=$this->_getSummary();
             $model->user_id=Yii::$app->user->identity->id;
@@ -124,8 +125,8 @@ class PostForm extends Model{
             }
 
             $this->id=$model->id;
-            //传数据给留言板
-            $model01->getPageId($this->id);
+
+
 
             //调用事件
             $data=array_merge($this->getAttributes(),$model->getAttributes());

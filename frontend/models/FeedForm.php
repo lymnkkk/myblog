@@ -78,7 +78,7 @@ class FeedForm extends Model
     public $post_id;
 
     public $_lastError;
-    public $save_id;
+
     /**
      * @inheritdoc
      */
@@ -104,19 +104,14 @@ class FeedForm extends Model
             'post_id'=>'文章ID',
         ];
     }
-    public function getPageId($id){
-        $this->save_id=$id;
-        print_r($this->save_id);
-    }
+
     public function create()
     {
         try{
 
             $model = new FeedModel();
             $model->user_id = Yii::$app->user->identity->id;
-            $model->post_id=$this->save_id;
-
-
+            $model->post_id=$this->post_id;
             $model->content = $this->content;
             $model->created_at = time();
             if(!$model->save())
@@ -124,9 +119,9 @@ class FeedForm extends Model
 
             return true;
         }catch (\Exception $e){
-            $this->_lastError = $e->getMessage();
-            return false;
-        }
+    $this->_lastError = $e->getMessage();
+    return false;
+}
     }
 
     public function getList($postId)

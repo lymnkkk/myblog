@@ -55,6 +55,25 @@ class SiteController extends BaseController
         ];
     }
 
+//    //加入上传图片的插件,给头像用
+//    public function actions()
+//    {
+//        return [
+//            /**
+//             * file_upload配置
+//             */
+//            'upload'=>[
+//                'class' => 'common\widgets\file_upload\UploadAction',     //这里扩展地址别写错
+//                'config' => [
+//                    //上传图片配置
+//                    'imageUrlPrefix' => "", /* 图片访问路径前缀 */
+//                    'imagePathFormat' => "/image/avatar/{yyyy}{mm}{dd}/{time}{rand:6}",
+//                ]
+//            ],
+//
+//        ];
+//    }
+
     /**
      * @inheritdoc
      */
@@ -68,6 +87,22 @@ class SiteController extends BaseController
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
+
+
+            /**
+             * file_upload配置
+             */
+            'upload'=>[
+                'class' => 'common\widgets\file_upload\UploadAction',     //这里扩展地址别写错
+                'config' => [
+                    //上传图片配置
+                    'imageUrlPrefix' => "", /* 图片访问路径前缀 */
+                    'imagePathFormat' => "/headimg/{yyyy}{mm}{dd}/{time}{rand:6}",
+                ]
+            ],
+
+
+
         ];
     }
 
@@ -154,6 +189,12 @@ class SiteController extends BaseController
         return $this->render('myzone');
     }
 
+    //朋友圈
+    public function actionFriends()
+    {
+
+        return $this->render('friends');
+    }
 
     /**
      * Signs user up.
@@ -243,6 +284,7 @@ class SiteController extends BaseController
     public function actionCreateinfo($id)
     {
        $model = new UserForm();
+
        $model->getupdate($id);
       if ($model->load(Yii::$app->request->post()) && $model->validate()){
            if (!$model->update($id)){

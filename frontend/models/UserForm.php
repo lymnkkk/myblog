@@ -17,6 +17,7 @@ class UserForm extends Model{
     public $email;
     public $username;
     public $sex;
+    public $avatar;
     public $_lastError="";
 
     //表单规则
@@ -34,15 +35,18 @@ class UserForm extends Model{
             'email'=>'邮箱',
             'username'=>'用户名',
             'sex'=>'性别',
+            'avatar'=>'头像',
         ];
     }
 
 
 
 
+    //获取原先的信息
     public function getupdate($id)
     {
-        $data = PostModel::find()->where(['id'=>$id])->asArray()->one();
+//        $data = PostModel::find()->where(['id'=>$id])->asArray()->one();
+
 //        $data = self::_formatList2($data);
 //        $this->title = $data['title'];
 //        $this->cat_id = $data['cat_id'];
@@ -50,12 +54,18 @@ class UserForm extends Model{
 //        $this->content = $data['content'];
 //        $this->tags = $data['tags'];
 //        $this->setAttributes($data);
-        $this->email=$data['email'];
-        $this->username=$data['username'];
-        $this->sex=$data['sex'];
+//        $this->email=$data['email'];
+//        $this->username=$data['username'];
+//        $this->sex=$data['sex'];
+        $this->email=Yii::$app->user->identity->email;
+        $this->username=Yii::$app->user->identity->username;
+        $this->sex=Yii::$app->user->identity->sex;
+//        $this->avatar=Yii::$app->user->identity->avatar;
+
 
     }
 
+    //更新修改后的信息
     public function update($id)
     {
         $transaction = Yii::$app->db->beginTransaction();
@@ -72,6 +82,8 @@ class UserForm extends Model{
             $usermodel->email=$this->email;
             $usermodel->username=$this->username;
             $usermodel->sex=$this->sex;
+
+
             if (!$usermodel->save()){
                 throw new \yii\base\Exception('更改个人信息失败!');
             }

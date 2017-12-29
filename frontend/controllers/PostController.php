@@ -19,6 +19,7 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 
 
+
 class PostController extends BaseController{
 
     public function behaviors()
@@ -49,6 +50,7 @@ class PostController extends BaseController{
     ];
 }
 
+//加入两个插件
     public function actions()
     {
         return [
@@ -58,8 +60,8 @@ class PostController extends BaseController{
             'upload'=>[
                 'class' => 'common\widgets\file_upload\UploadAction',     //这里扩展地址别写错
                 'config' => [
-                    //上传图片配置
-                    'imageUrlPrefix' => "", /* 图片访问路径前缀 */
+//                    //上传图片配置
+//                    'imageUrlPrefix' => "", /* 图片访问路径前缀 */
                     'imagePathFormat' => "/image/{yyyy}{mm}{dd}/{time}{rand:6}",
                 ]
             ],
@@ -119,13 +121,13 @@ $cat=CatModel::getAllCats();
         $model=new PostExtendModel();
         $model->upCounter(['post_id'=>$id],'browser',1);
 
-//        获取文章留言板数据
-//        $feed=new FeedForm();
-//        $feeds['feed']=$feed->getList($id);
+        //获取文章留言板数据
+        $feed=new FeedForm();
+        $feeds['feed']=$feed->getList($id);
 
 
        // return $this->redirect(['post/view','id'=>17]);
-        return $this->render('view',['data'=>$data]);
+        return $this->render('view',['data'=>$data,'feeds'=>$feeds]);
     }
 
 
@@ -152,24 +154,24 @@ $cat=CatModel::getAllCats();
 
         return $this->render('delete');
     }
-//
-//    //留言板添加
-//    public function actionAddFeed()
-//    {
-//
-//        $model=new FeedForm();
-//        $model->content=Yii::$app->request->post('content');
-////       $model->post_id=Yii::$app->request->post('post');
-//
-////        print_r($model->post_id);exit;
-//        if($model->validate()){
-//            if($model->create()){
-//                return json_encode(['status'=>true]);
-//            }
-//        }
-//
-//        return json_decode(['status'=>false,'msg'=>'发布失败!']);
-//    }
+
+    //留言板添加
+    public function actionAddFeed($id)
+    {
+
+        $model=new FeedForm();
+        $model->content=Yii::$app->request->post('content');
+        $model->post_id=$id;
+
+//        print_r($model->post_id);exit;
+        if($model->validate()){
+            if($model->create()){
+                return json_encode(['status'=>true]);
+            }
+        }
+
+        return json_decode(['status'=>false,'msg'=>'发布失败!']);
+    }
 
 
 

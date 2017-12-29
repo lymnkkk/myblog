@@ -19,6 +19,6 @@ use frontend\widgets\info\InfoWidget;
            <?=ZoneWidget::widget()?>
     </div>
     <div class="col-lg-3">
-           <?=InfoWidget::widget()?>
+           <?=InfoWidget::widget(['id'=>Yii::$app->user->identity->id])?>
     </div>
 </div>

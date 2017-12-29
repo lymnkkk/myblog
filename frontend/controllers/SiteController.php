@@ -195,6 +195,11 @@ class SiteController extends BaseController
 
         return $this->render('friends');
     }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 8b4a464f9c602228e37c0de20043a6ceb7a2df65
 
     /**
      * Signs user up.

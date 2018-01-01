@@ -79,6 +79,7 @@ class PostForm extends Model{
 
         //获取分页数据
         $res=$model->getPages($query,$curPage,$pageSize);
+
         //格式化
         $res['data']=self::_formatList($res['data']);
         return $res;
@@ -101,6 +102,9 @@ class PostForm extends Model{
         }
         return $data;
     }
+
+
+
     /**
      * 文章创建
      * @return bool

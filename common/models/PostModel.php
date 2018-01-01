@@ -46,6 +46,10 @@ class PostModel extends BaseModel
     public function getFeed(){
         return $this->hasMany(PostExtendModel::className(),['post_id'=>id]);
     }
+
+    public function getCat(){
+        return $this->hasOne(CatModel::className(),['id'=>'cat_id']);
+    }
     /**
      * @inheritdoc
      */
@@ -64,17 +68,19 @@ class PostModel extends BaseModel
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'title' => 'Title',
-            'summary' => 'Summary',
-            'content' => 'Content',
-            'label_img' => 'Label Img',
-            'cat_id' => 'Cat ID',
-            'user_id' => 'User ID',
-            'user_name' => 'User Name',
-            'is_valid' => 'Is Valid',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'id' => '文章ID',
+            'title' => Yii::t('common','Title'),
+            'summary' => Yii::t('common','Summary'),
+            'content' => Yii::t('common','Content'),
+            'label_img' => Yii::t('common','Label Img'),
+            'cat_id' => Yii::t('common','Cat ID'),
+            'user_id' => Yii::t('common','User ID'),
+            'user_name' => Yii::t('common','User Name'),
+            'is_valid' => Yii::t('common','Is Valid'),
+            'created_at' => Yii::t('common','Created At'),
+            'updated_at' => Yii::t('common','Updated At'),
+            'cat'=>'',
+
         ];
     }
 }

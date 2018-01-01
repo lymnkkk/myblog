@@ -9,8 +9,11 @@
 namespace  frontend\controllers;
 
 use common\models\CatModel;
+use common\models\FansModel;
+use common\models\FeedModel;
 use common\models\PostExtendModel;
 use common\models\PostModel;
+use common\models\RelationPostTagsModel;
 use frontend\models\FeedForm;
 use Yii;
 use frontend\controllers\base\BaseController;
@@ -83,12 +86,20 @@ class PostController extends BaseController{
 
 
     /**
-     * 文章列表
+     * 最新文章列表
      */
     public function actionIndex(){
+
         return $this->render('index');
     }
 
+    /**
+     * 通过标签得出的文章列表
+     */
+    public function actionTagindex($tag){
+        $data['tagname']=$tag;
+        return $this->render('tagindex',['data'=>$data]);
+    }
     /**     * 创建文章
      * @return mixed
      */
@@ -121,13 +132,18 @@ $cat=CatModel::getAllCats();
         $model=new PostExtendModel();
         $model->upCounter(['post_id'=>$id],'browser',1);
 
-        //获取文章留言板数据
-        $feed=new FeedForm();
-        $feeds['feed']=$feed->getList($id);
+//        //获取文章留言板数据
+//        $feed=new FeedForm();
+//        $feeds['feed']=$feed->getList($id);
+
+//        $att=FansModel::find()->where(['fans'=>Yii::$app->user->identity->id,'idol'=>$id])->all();
+//        if($att){
+//            $attention['att']='yes';
+//        }
 
 
        // return $this->redirect(['post/view','id'=>17]);
-        return $this->render('view',['data'=>$data,'feeds'=>$feeds]);
+        return $this->render('view',['data'=>$data]);
     }
 
 
@@ -150,7 +166,10 @@ $cat=CatModel::getAllCats();
     }
 
     public function actionDelete($id){
-        PostModel::findOne($id)->delete();
+        PostModel::findOne($id)->delete(); //删除posts的相关数据
+        RelationPostTagsModel::deleteAll(['post_id'=>$id]);//删除relation_post_tags表的相关数据
+        //删除tags表的相关数据
+
 
         return $this->render('delete');
     }
@@ -173,6 +192,31 @@ $cat=CatModel::getAllCats();
         return json_decode(['status'=>false,'msg'=>'发布失败!']);
     }
 
+    //删除评论，这里的id是评论的id,也就是feeds表的id
+    //重新加载文章详情
+    public function actionDeletechat($id,$postid){
+        if(FeedModel::findOne(['id'=>$id])){
+            FeedModel::findOne(['id'=>$id])->delete();
+        }
+
+        $model=new PostForm();
+        $data=$model->getViewById($postid);
+
+        $model=new PostExtendModel();
+        $model->upCounter(['post_id'=>$postid],'browser',1);
+
+
+        // return $this->redirect(['post/view','id'=>17]);
+        return $this->render('view',['data'=>$data]);
+
+
+    }
+
+    public function actionSearch(){
+        $query['content']=Yii::$app->request->post('q');
+
+        return $this->render('search',['data'=>$query]);
+    }
 
 
 

@@ -38,7 +38,7 @@ class CatModel extends BaseModel
     {
         return [
             'id' => 'ID',
-            'cat_name' => 'Cat Name',
+            'cat_name' => Yii::t('common','Cat Name'),
         ];
     }
 

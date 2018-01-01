@@ -7,7 +7,7 @@ use yii\widgets\LinkPager;
     <div class="panel-title box-title">
         <span><?=$data['title']?></span>
         <?php if($this->context->more):?>
-            <span class="pull-right"><a href="<?=$data['more']?>" class="font-12">更多»</a></span>
+<!--            <span class="pull-right"><a href="--><?//=$data['more']?><!--" class="font-12">更多»</a></span>-->
         <?php endif;?>
     </div>
     <div class="new-list">

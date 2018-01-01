@@ -4,6 +4,7 @@ namespace frontend\widgets\info;
 /**
  * 热门浏览组件
  */
+use common\models\FansModel;
 use common\models\PostExtendModel;
 use common\models\PostModel;
 use common\models\UserModel;
@@ -47,11 +48,14 @@ class InfoWidget extends Widget{
             $result['username']=$info->username;
             $result['email']=$info->email;
             $result['sex']=$info->sex?:-1;
+            $att=FansModel::find()->where(['fans'=>Yii::$app->user->identity->id,'idol'=>$this->id])->all();
+            //判断是否关注
+           if($att){
+               $result['att']='yes';//已经关注
+            }else{
+               $result['att']='no';//还未关注
+           }
         }
-
-
-
-//        $result['body'] = $res?:[];
 
         return $this->render('index',['data'=>$result]);
     }

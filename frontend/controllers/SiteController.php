@@ -89,7 +89,7 @@ class SiteController extends BaseController
             ],
 
 
-            /**
+                /**
              * file_upload配置
              */
             'upload'=>[

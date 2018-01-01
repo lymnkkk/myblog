@@ -42,8 +42,8 @@ class TagModel extends BaseModel
     {
         return [
             'id' => 'ID',
-            'tag_name' => 'Tag Name',
-            'post_num' => 'Post Num',
+            'tag_name' => Yii::t('common','Tag Name'),
+            'post_num' => Yii::t('common','Post Num'),
         ];
     }
 }

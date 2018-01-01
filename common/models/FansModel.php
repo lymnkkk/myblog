@@ -11,8 +11,7 @@ use Yii;
  * @property integer $id
  * @property integer $fans
  * @property integer $idol
-
-
+ *
  * @property UserModel $fans0
  * @property UserModel $idol0
  */
@@ -34,13 +33,8 @@ class FansModel extends BaseModel
         return [
             [['fans', 'idol'], 'required'],
             [['fans', 'idol'], 'integer'],
-
-            [['fans'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['fans' => 'id']],
-            [['idol'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['idol' => 'id']],
-
             [['fans'], 'exist', 'skipOnError' => true, 'targetClass' => UserModel::className(), 'targetAttribute' => ['fans' => 'id']],
             [['idol'], 'exist', 'skipOnError' => true, 'targetClass' => UserModel::className(), 'targetAttribute' => ['idol' => 'id']],
-
         ];
     }
 
@@ -61,11 +55,7 @@ class FansModel extends BaseModel
      */
     public function getFans0()
     {
-
-        return $this->hasOne(User::className(), ['id' => 'fans']);
-
         return $this->hasOne(UserModel::className(), ['id' => 'fans']);
-
     }
 
     /**
@@ -73,10 +63,6 @@ class FansModel extends BaseModel
      */
     public function getIdol0()
     {
-
-        return $this->hasOne(User::className(), ['id' => 'idol']);
-
         return $this->hasOne(UserModel::className(), ['id' => 'idol']);
-
     }
 }

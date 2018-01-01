@@ -36,6 +36,19 @@ class UserModel extends BaseModel implements IdentityInterface
         return '{{%user}}';
     }
 
+    public function  attributeLabels()
+    {
+        return[
+        'username' => Yii::t('common','Username'),
+            'email'=>Yii::t('common','Email'),
+            'status'=>Yii::t('common','Status'),
+            'created_at'=>Yii::t('common','Created_at'),
+            'updated_at'=>Yii::t('common','Updated_at'),
+            'sex'=>Yii::t('common','Sex'),
+
+        ];
+    }
+
     /**
      * @inheritdoc
      */

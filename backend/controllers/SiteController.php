@@ -71,8 +71,9 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        $this->layout='login.php';//布局文件重定义，取代之前的mian.php布局文件
         if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+            return $this->render('index');
         }
 
         $model = new LoginForm();

@@ -11,10 +11,17 @@ use frontend\widgets\hot\HotWidget;
 use frontend\widgets\tag\TagWidget;
 use yii\helpers\Url;
 use yii\helpers\Html;
+use frontend\widgets\search\SearchWidget;
+
+if(isset($_POST['q']))
+    echo $_POST['q'];
+
 ?>
 <div class="row">
     <div class="col-lg-9">
+        <?=SearchWidget::widget()?>
         <?=PostWidget::widget(['limit'=>6])?>
+
     </div>
     <div class="col-lg-3">
         <!-- 创建文章-->

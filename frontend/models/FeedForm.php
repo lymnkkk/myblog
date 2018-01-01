@@ -64,7 +64,9 @@ use common\models\PostModel;
 use Yii;
 use yii\base\Model;
 use common\models\FeedModel;
-use frontend\controllers\PostController;
+
+
+
 
 /**
  * This is the model class for table "feeds".
@@ -124,16 +126,30 @@ class FeedForm extends Model
 }
     }
 
-    public function getList($postId)
+    public function getList($cond,$curPage=1,$pageSize=10)
     {
-
         $model = new FeedModel();
 
-        $res = $model->find()->limit(6)->with('user')->where(['post_id'=>$postId])->orderBy(['id'=>SORT_DESC])->asArray()->all();
-        return $res?:[];
+       $res= $model->find()->with('user')->where($cond)->orderBy(['id'=>SORT_DESC])->asArray()->all();
+
+
+//        //查询条件
+//
+//        $select=['id','user_id','post_id','content','created_at'];
+//        $query=$model->find()->select($select)
+//            ->where($cond)
+//            ->with('user')
+//            ->orderBy(['id'=>SORT_DESC]);
+//
+//        //获取分页数据
+//        $res=$model->getPages($query,$curPage,$pageSize);
+
+
+
+        return $res?:'';
     }
-//
-//
+
+
 
 
 

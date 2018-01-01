@@ -44,7 +44,9 @@ AppAsset::register($this);
         ['label' => Yii::t('common','MyZone'), 'url' => ['/site/myzone']],//空间
         ['label' => Yii::t('common','Post'), 'url' => ['/post/index']],//文章
         ['label' => Yii::t('common','Friends'), 'url' => ['/site/friends']],//朋友圈
+
     ];
+
     if (Yii::$app->user->isGuest) {//如果是游客
         $rightItems[] = ['label' => Yii::t('common','Signup'), 'url' => ['/site/signup']];
         $rightItems[] = ['label' => Yii::t('common','Login'), 'url' => ['/site/login']];

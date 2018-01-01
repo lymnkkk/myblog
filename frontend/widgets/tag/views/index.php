@@ -7,7 +7,7 @@ use yii\helpers\Url;
 <div class="panel-body padding-left-0">
     <div class="tag-cloud">
         <?php foreach ($data['body'] as $list):?>
-		<a href="<?=Url::to(['post/index','tag'=>$list['tag_name']])?>"><?=$list['tag_name']?></a>
+		<a href="<?=Url::to(['post/tagindex','tag'=>$list['tag_name']])?>"><?=$list['tag_name']?></a>
 		<?php endforeach;?>
     </div>
 </div>

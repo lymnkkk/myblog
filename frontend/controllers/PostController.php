@@ -169,15 +169,12 @@ $cat=CatModel::getAllCats();
         PostModel::findOne($id)->delete(); //删除posts的相关数据
         RelationPostTagsModel::deleteAll(['post_id'=>$id]);//删除relation_post_tags表的相关数据
         //删除tags表的相关数据
-
-
         return $this->render('delete');
     }
 
     //留言板添加
     public function actionAddFeed($id)
     {
-
         $model=new FeedForm();
         $model->content=Yii::$app->request->post('content');
         $model->post_id=$id;
@@ -213,9 +210,9 @@ $cat=CatModel::getAllCats();
     }
 
     public function actionSearch(){
-        $query['content']=Yii::$app->request->post('q');
 
-        return $this->render('search',['data'=>$query]);
+
+        return $this->render('search');
     }
 
 

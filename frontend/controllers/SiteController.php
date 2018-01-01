@@ -32,7 +32,7 @@ class SiteController extends BaseController
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup','myzone'],
+                'only' => ['logout', 'signup','myzone','friends'],
                 'rules' => [
                     [
                         'actions' => ['signup'],
@@ -40,7 +40,7 @@ class SiteController extends BaseController
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout','myzone'],
+                        'actions' => ['logout','myzone','friends'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],

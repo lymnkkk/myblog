@@ -48,7 +48,7 @@
     <div class="col-lg-3">
         <!--创建文章和更新文章 -->
         <div class="panel">
-            <?php if($data['user_id']==Yii::$app->user->identity->id){?>
+            <?php if(!Yii::$app->user->isGuest&&$data['user_id']==Yii::$app->user->identity->id){?>
                 <?= Html::a('编辑文章', ['update', 'id' => $data['id']], ['class' => 'btn btn-success btn-quirk btn-block']) ?>
                 <?= Html::a('删除文章', ['delete', 'id' => $data['id']], ['class' => 'btn btn-success btn-quirk btn-block']) ?>
             <?php }?>

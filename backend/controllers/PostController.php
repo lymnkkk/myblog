@@ -103,14 +103,14 @@ class PostController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['view']);
+        return $this->redirect(['index']);
     }
 
     public function actionDeletelabelimg($id){
         $Post = PostModel::findOne($id);
         $Post->label_img = Null;
         $Post->save(); // 等同于 $User->update();
-        return $this->redirect(['view']);
+        return $this->redirect(['index']);
     }
 
     /**

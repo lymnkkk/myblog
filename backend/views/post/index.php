@@ -30,7 +30,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'title',
                 'format'=>'raw',
                 'value'=>function($model){
-                    return '<a target="_blank"  href ="http://localhost/hyii2/frontend/web/post/view?id='.$model->id.'">'.$model->title.'</a>';
+                    return '<a target="_blank"  href ="http://dracoooo.cn/post/view?id='.$model->id.'">'.$model->title.'</a>';
+//                    return '<a target="_blank"  href ="http://localhost/hyii2/frontend/web/post/view?id='.$model->id.'">'.$model->title.'</a>';
                 },
                 ],
             'summary',

@@ -213,6 +213,8 @@ $cat=CatModel::getAllCats();
     }
 
     public function actionSearch(){
+
+        echo("<script>console.log('".Yii::$app->request->get('q')."');</script>");
         $query['content']=Yii::$app->request->post('q');
 
         return $this->render('search',['data'=>$query]);

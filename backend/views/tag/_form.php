@@ -14,7 +14,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'tag_name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'post_num')->textInput() ?>
+<!--    <?//= $form->field($model, 'post_num')->textInput() ?>-->
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ?

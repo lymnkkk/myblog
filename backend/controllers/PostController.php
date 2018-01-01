@@ -103,7 +103,7 @@ class PostController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['view']);
+        return $this->redirect(['index']);
     }
 
     public function actionDeletelabelimg($id){

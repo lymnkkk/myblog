@@ -16,6 +16,7 @@ use common\models\base\BaseModel;
  * @property string $password_reset_token
  * @property string $email
  * @property string $auth_key
+ * @property string $avatar
  * @property integer $status
  * @property integer $created_at
  * @property integer $updated_at
@@ -45,6 +46,7 @@ class UserModel extends BaseModel implements IdentityInterface
             'created_at'=>Yii::t('common','Created_at'),
             'updated_at'=>Yii::t('common','Updated_at'),
             'sex'=>Yii::t('common','Sex'),
+            'avatar'=>Yii::t('common','Avatar'),
 
         ];
     }

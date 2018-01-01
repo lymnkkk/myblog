@@ -67,4 +67,6 @@ return[
     'Cat Manage'=>'分类管理',
     'User Manage'=>'用户管理',
 
+    'Avatar'=>'头像',
+
 ];

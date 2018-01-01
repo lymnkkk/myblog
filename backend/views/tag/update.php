@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $model common\models\TagModel */
 
 $this->title = Yii::t('common','Update Tag Model: ') . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Tag Models', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' =>Yii::t('common', 'Tag Models'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('common','Update');
 ?>

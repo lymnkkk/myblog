@@ -64,6 +64,7 @@ use common\models\PostModel;
 use Yii;
 use yii\base\Model;
 use common\models\FeedModel;
+use common\models\UserModel;
 
 
 
@@ -130,21 +131,16 @@ class FeedForm extends Model
     {
         $model = new FeedModel();
 
-       $res= $model->find()->with('user')->where($cond)->orderBy(['id'=>SORT_DESC])->asArray()->all();
+        //查询条件
 
+        $select=['id','user_id','post_id','content','created_at'];
+        $query=$model->find()->select($select)
+            ->where($cond)
+            ->with('user')
+            ->orderBy(['id'=>SORT_DESC]);
 
-//        //查询条件
-//
-//        $select=['id','user_id','post_id','content','created_at'];
-//        $query=$model->find()->select($select)
-//            ->where($cond)
-//            ->with('user')
-//            ->orderBy(['id'=>SORT_DESC]);
-//
-//        //获取分页数据
-//        $res=$model->getPages($query,$curPage,$pageSize);
-
-
+        //获取分页数据
+        $res=$model->getPages($query,$curPage,$pageSize);
 
         return $res?:'';
     }

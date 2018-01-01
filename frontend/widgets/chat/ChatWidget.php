@@ -18,18 +18,15 @@ class ChatWidget extends Widget
     public function run(){
 
         $feed=new FeedForm();
-//        $feed->_getPostId($this->id);
 
         $curPage=Yii::$app->request->get('page',1);
 
         $cond=['=','post_id',$this->id];
-        $data['feed']=$feed->getList($cond,$curPage,$this->limit);
+        $curPage=Yii::$app->request->get('page',1);
+        $res=$feed->getList($cond,$curPage,$this->limit);
+        $data['feed']=$res['data'];
         $data['id']=$this->id;
 
-
-       $res=FeedModel::findAll(['post_id'=>$this->id]);
-        $res['count']=count($res);
-        $res['pageSize']=1;
 
         //分页显示
         if($this->page){

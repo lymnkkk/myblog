@@ -110,7 +110,7 @@ class PostController extends Controller
         $Post = PostModel::findOne($id);
         $Post->label_img = Null;
         $Post->save(); // 等同于 $User->update();
-        return $this->redirect(['view']);
+        return $this->redirect(['index']);
     }
 
     /**

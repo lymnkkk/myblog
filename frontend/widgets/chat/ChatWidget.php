@@ -14,7 +14,7 @@ class ChatWidget extends Widget
 {
     public $id;       //文章id
     public $page=true;
-    public $limit;
+    public $limit=6;
     public function run(){
 
         $feed=new FeedForm();

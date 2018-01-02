@@ -68,7 +68,8 @@ class TagForm extends Model{
         if($res->post_num==1){
                 $model->findOne(['id'=>$tagid])->delete();
         }else if($res->post_num>1){
-            $model->post_num-=1;
+//            $model->post_num=-1;
+            $res->updateCounters(['post_num'=>-1]);
         }
     }
 }

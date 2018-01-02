@@ -286,7 +286,6 @@ class SiteController extends BaseController
     public function actionCreateinfo($id)
     {
        $model = new UserForm();
-
        $model->getupdate($id);
       if ($model->load(Yii::$app->request->post()) && $model->validate()){
            if (!$model->update($id)){
@@ -295,10 +294,7 @@ class SiteController extends BaseController
                return $this->redirect(['site/myzone']);
            }
        }
-
-
         return $this->render('createinfo',['data'=>$model]);
-
     }
 
 //    //编辑个人资料

@@ -59,11 +59,10 @@ class PostWidget extends Widget{
             }
             $cond='id in('.$post_id_str.')';
         }else{
+            //普通的最新文章列表
             $cond=['=','is_valid',PostModel::IS_VALID];
         }
-
         $curPage=Yii::$app->request->get('page',1);
-
         $res=PostForm::getList($cond,$curPage,$this->limit);
         $result['title']=$this->title?:'最新文章';
         $result['more']=Url::to(['post/index']);

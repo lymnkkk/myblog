@@ -42,7 +42,6 @@ class MemberController extends BaseController
             }
         }
         return json_decode(['status'=>false,'msg'=>'发布失败!']);
-
     }
 
     //取消关注

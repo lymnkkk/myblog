@@ -131,15 +131,10 @@ class PostForm extends Model{
             if(!$model->save()){
                 throw new \Exception('文章创建失败！');
             }
-
             $this->id=$model->id;
-
-
-
             //调用事件
             $data=array_merge($this->getAttributes(),$model->getAttributes());
             $this->_eventAfterCreate($data);
-
             $transaction->commit();
             return true;
         }catch(\Exception $e){

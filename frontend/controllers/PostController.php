@@ -116,7 +116,6 @@ class PostController extends BaseController{
     //获取所有分类
         $cat=CatModel::getAllCats();
         return $this->render('create',['model'=>$model,'cat'=>$cat]);
-
     }
 
     /**
@@ -128,10 +127,8 @@ class PostController extends BaseController{
     public function actionView($id){
         $model=new PostForm();
         $data=$model->getViewById($id);
-
         $model=new PostExtendModel();
         $model->upCounter(['post_id'=>$id],'browser',1);
-
 //        //获取文章留言板数据
 //        $feed=new FeedForm();
 //        $feeds['feed']=$feed->getList($id);
@@ -140,8 +137,6 @@ class PostController extends BaseController{
 //        if($att){
 //            $attention['att']='yes';
 //        }
-
-
        // return $this->redirect(['post/view','id'=>17]);
         return $this->render('view',['data'=>$data]);
     }
@@ -160,21 +155,18 @@ class PostController extends BaseController{
             }
         }
         $cats = CatModel::getAllCats();
-
         return $this->render('update',['model'=>$model,'cats' => $cats]);
-
     }
 
     //删除文章（这里的id是文章id）
     public function actionDelete($id){
-        PostModel::findOne($id)->delete(); //删除posts的相关数据
-
+        //删除posts表的相关数据
+        PostModel::findOne($id)->delete();
         //删除tags表的相关数据
         $model=new PostForm();
         $model->_eventdeleteTag($id);
-        RelationPostTagsModel::deleteAll(['post_id'=>$id]);//删除relation_post_tags表的相关数据
-
-
+        //删除relation_post_tags表的相关数据
+        RelationPostTagsModel::deleteAll(['post_id'=>$id]);
         return $this->render('delete');
     }
 

@@ -1,11 +1,19 @@
 /**
 热门浏览组件样式
  */
+.panel{
+    /*background: #f8f8f5;*/
+}
+.box-title span{
+    color:#55544d;
+}
 .hot-list .media-left a{
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
     font-size: 12px;
     line-height: 22px;
-    background: #5cb85c;
+    /*background: #5cb85c;*/
+    background:#276398;
+    opacity:0.8;
     width: 45px;
     display: block;
     height: 48px;
@@ -20,7 +28,7 @@
     background: #fff;
     display: block;
     line-height: 26px;
-    color: #333;
+    color: #6c6a5a;
     font-style: normal;
 }
 
@@ -32,6 +40,11 @@
 
 .media-right {
     line-height:24px;
+}
+
+.media-right em{
+    color: #6c6a5a;
+    font-style: normal;
 }
 
 .hot-body {

@@ -19,7 +19,7 @@ class ChatWidget extends Widget
 
         $feed=new FeedForm();
 
-        $curPage=Yii::$app->request->get('page',1);
+//        $curPage=Yii::$app->request->get('page',1);
 
         $cond=['=','post_id',$this->id];
         $curPage=Yii::$app->request->get('page',1);

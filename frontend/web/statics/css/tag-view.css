@@ -2,7 +2,7 @@
 .tag-cloud a {
     border: 1px solid #ebebeb;
     padding: 2px 7px;
-    color: #333;
+    color: #6c6a5a;
     line-height: 2em;
     display: inline-block;
     font-size:14px;
@@ -11,6 +11,8 @@
 }
 
 .tag-cloud a:hover {
-    background-color:#5bc0de;
+    background-color:#276398;
+    opacity: 0.7;
+    color: white;
     text-decoration: none;
 }

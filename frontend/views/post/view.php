@@ -20,7 +20,7 @@
     <div class="col-lg-9">
         <div class="page-title">
             <h1><?=$data['title']?></h1>
-            <span>作者：<?=$data['user_name']?></span>
+            <span>作者：<a href="<?=Url::to(['member/index','id'=>$data['user_id']])?>"><?=$data['user_name']?></a></span>
             <span>发布：<?=date('Y-m-d',$data['created_at'])?></span>
             <span>浏览：<?=isset($data['extend']['browser'])?$data['extend']['browser']:0?></span>
             <span>id：<?=$data['id']?></span>
@@ -49,10 +49,10 @@
         <!--创建文章和更新文章 -->
         <div class="panel">
             <?php if(!Yii::$app->user->isGuest&&$data['user_id']==Yii::$app->user->identity->id){?>
-                <?= Html::a('编辑文章', ['update', 'id' => $data['id']], ['class' => 'btn btn-success btn-quirk btn-block']) ?>
-                <?= Html::a('删除文章', ['delete', 'id' => $data['id']], ['class' => 'btn btn-success btn-quirk btn-block']) ?>
+                <?= Html::a('编辑文章', ['update', 'id' => $data['id']], ['class' => 'btn btn-default btn-quirk btn-block']) ?>
+                <?= Html::a('删除文章', ['delete', 'id' => $data['id']], ['class' => 'btn btn-danger btn-quirk btn-block']) ?>
             <?php }?>
-            <a href="<?=\yii\helpers\Url::to(['post/create'])?>" class="btn btn-danger btn-quirk btn-block">创建文章</a>
+<!--            <a href="--><?//=\yii\helpers\Url::to(['post/create'])?><!--" class="btn btn-danger btn-quirk btn-block">创建文章</a>-->
         </div>
         <!--标签云组件 -->
         <?=HotWidget::Widget()?>

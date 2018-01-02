@@ -114,7 +114,7 @@ class PostController extends BaseController{
             }
         }
     //获取所有分类
-$cat=CatModel::getAllCats();
+        $cat=CatModel::getAllCats();
         return $this->render('create',['model'=>$model,'cat'=>$cat]);
 
     }
@@ -165,10 +165,16 @@ $cat=CatModel::getAllCats();
 
     }
 
+    //删除文章（这里的id是文章id）
     public function actionDelete($id){
         PostModel::findOne($id)->delete(); //删除posts的相关数据
-        RelationPostTagsModel::deleteAll(['post_id'=>$id]);//删除relation_post_tags表的相关数据
+
         //删除tags表的相关数据
+        $model=new PostForm();
+        $model->_eventdeleteTag($id);
+        RelationPostTagsModel::deleteAll(['post_id'=>$id]);//删除relation_post_tags表的相关数据
+
+
         return $this->render('delete');
     }
 

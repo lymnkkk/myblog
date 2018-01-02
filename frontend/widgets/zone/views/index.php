@@ -7,7 +7,7 @@ use yii\widgets\LinkPager;
     <div class="panel-title box-title">
         <span><?=$data['title']?></span>
         <?php if($this->context->more):?>
-            <span class="pull-right"><a href="<?=$data['more']?>" class="font-12">更多»</a></span>
+
         <?php endif;?>
     </div>
     <div class="new-list">
@@ -28,7 +28,7 @@ use yii\widgets\LinkPager;
                         <span class="glyphicon glyphicon-comment"></span><a href="<?=Url::to(['post/view','id'=>$list['id']])?>"><?=isset($list['extend']['comment'])?$list['extend']['comment']:0?></a>
                     </span>
                         <p class="post-content"><?=$list['summary']?></p>
-                        <a href="<?=Url::to(['post/view','id'=>$list['id']])?>"><button class="btn btn-warning no-radius btn-sm pull-right">阅读全文</button></a>
+                        <a href="<?=Url::to(['post/view','id'=>$list['id']])?>"><button class="btn btn-default no-radius btn-sm pull-right">阅读全文</button></a>
                     </div>
                 </div>
                 <div class="tags">

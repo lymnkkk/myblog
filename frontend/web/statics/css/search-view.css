@@ -1,0 +1,26 @@
+.search-par{
+
+}
+.search-par>.form-control{
+    width: 88%;
+    float: left;
+}
+.search-par>.btn-primary{
+
+      margin-left: 20px;
+
+      /*background: url("../../statics/images/material/search.png") no-repeat fixed center 20px;*/
+  }
+/*.search-par>.btn-default:hover{*/
+
+    /*background:#276398;*/
+    /*color:white;*/
+
+    /*!*background: url("../../statics/images/material/search.png") no-repeat fixed center 20px;*!*/
+/*}*/
+
+.btn-primary{
+    background: #276398;
+    opacity: 0.8;
+}
+

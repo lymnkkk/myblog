@@ -132,7 +132,6 @@ class FeedForm extends Model
         $model = new FeedModel();
 
         //查询条件
-
         $select=['id','user_id','post_id','content','created_at'];
         $query=$model->find()->select($select)
             ->where($cond)

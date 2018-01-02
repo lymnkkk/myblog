@@ -6,7 +6,7 @@ use yii\widgets\LinkPager;
 <div class="panel">
 <div class="panel-title box-title" style="border-bottom:none">
     <span><strong>评论</strong></span>
-    <span class="pull-right"><a href="" class="font-12">更多>></a></span>
+    <span class="pull-right"><a href="" class="more">更多>></a></span>
 </div>
 <div class="pannel-boy">
     <form id="w0" action="/" method="post">
@@ -15,7 +15,7 @@ use yii\widgets\LinkPager;
 
             </textarea>
              <span class="input-group-btn">
-                 <button type="button" data-url="<?=Url::to(['post/add-feed','id'=>$data['id']])?>" class='btn btn-success btn-feed j-feed'>发布</button>
+                 <button type="button" data-url="<?=Url::to(['post/add-feed','id'=>$data['id']])?>" class='btn btn-primary btn-feed j-feed'>发布</button>
 <!--            <button type="button" data-url="--><?//=Url::to(['post/add-feed'])?><!--" class='btn btn-success btn-feed j-feed'>发布</button>-->
             </span>
         </div>
@@ -36,7 +36,7 @@ use yii\widgets\LinkPager;
                             <?=date('Y-m-d h:i:s',$list['created_at'])?>
                         </div>
                     </div>
-                    <?php if($list['user_id']==Yii::$app->user->identity->id){?>
+                    <?php if(!Yii::$app->user->isGuest&&$list['user_id']==Yii::$app->user->identity->id){?>
                     <div style="float: left; ">
                         <?= Html::a('删除评论', ['post/deletechat', 'id' => $list['id'],'postid'=>$data['id']]) ?>
                     </div>

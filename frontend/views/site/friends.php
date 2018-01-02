@@ -13,9 +13,15 @@ use frontend\widgets\friends\FriendsWidget;
 ?>
 
 <div class="row">
+    <div class="col-lg-1">
+    </div>
     <div  class="col-lg-9">
         <?=FriendsWidget::widget()?>
     </div>
+    <div class="col-lg-2">
+    </div>
+
+
 </div>
 
 

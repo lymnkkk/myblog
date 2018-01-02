@@ -18,14 +18,15 @@ class UserForm extends Model{
     public $username;
     public $sex;
     public $avatar;
+    public $location;
+    public $introduction;
     public $_lastError="";
 
     //表单规则
     public function rules(){
         return [
-            [['email','username'],'string','max'=>255],
+            [['email','username','location','introduction'],'string','max'=>255],
             ['sex','integer'],
-
         ];
     }
 
@@ -36,6 +37,8 @@ class UserForm extends Model{
             'username'=>'用户名',
             'sex'=>'性别',
             'avatar'=>'头像',
+            'location'=>'所在地',
+            'introduction'=>'简介'
         ];
     }
 
@@ -60,7 +63,9 @@ class UserForm extends Model{
         $this->email=Yii::$app->user->identity->email;
         $this->username=Yii::$app->user->identity->username;
         $this->sex=Yii::$app->user->identity->sex;
-//        $this->avatar=Yii::$app->user->identity->avatar;
+        $this->avatar=Yii::$app->user->identity->avatar;
+        $this->location=Yii::$app->user->identity->location;
+        $this->introduction=Yii::$app->user->identity->introduction;
 
 
     }
@@ -82,7 +87,9 @@ class UserForm extends Model{
             $usermodel->email=$this->email;
             $usermodel->username=$this->username;
             $usermodel->sex=$this->sex;
-
+            $usermodel->avatar=$this->avatar;
+            $usermodel->location=$this->location;
+            $usermodel->introduction=$this->introduction;
 
             if (!$usermodel->save()){
                 throw new \yii\base\Exception('更改个人信息失败!');

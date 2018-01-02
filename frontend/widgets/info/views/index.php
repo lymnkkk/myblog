@@ -17,12 +17,17 @@ use yii\db\Query;
         <div class="clearfix hot-list">
 
             <div class="panel">
-            email:<em><?=$data['email']?></em>
+                <p class="" style="color: #6c6a5a; font-style: normal;">邮箱:&nbsp;<?=$data['email']?></p>
+                <p style="color: #6c6a5a; font-style: normal;">所在地:&nbsp;<?=$data['location']?></p>
+                <p style="color: #6c6a5a; font-style: normal;">简介:&nbsp;<?=$data['introduction']?></p>
+
             </div>
 
             <div class="media-right">
                 <?php if($data['id']==Yii::$app->user->identity->id){?>
-                     <?= Html::a('编辑个人信息', ['site/createinfo','id'=>Yii::$app->user->identity->id], ['class' => 'btn btn-success btn-quirk btn-block']) ?>
+                     <?= Html::a('编辑个人信息', ['site/createinfo','id'=>Yii::$app->user->identity->id], ['class' => 'btn btn-default btn-quirk btn-block']) ?>
+                    <!-- 创建文章-->
+
                <?php }else{?>
                     <?php if($data['att']=='no'){?>
                     <script type="text/javascript">
@@ -33,7 +38,7 @@ use yii\db\Query;
                     </script>
                     <?php }?>
                     <button type="button" id="atten" data-url="<?=Url::to(['member/attention','id'=>$data['id']])?>"
-                            onclick="compute()" class='btn btn-success btn-feed j-feed' >关注</button>
+                            onclick="compute()" class='btn btn-primary j-feed' >关注</button>
                     <script type="text/javascript">
                      function compute(){
                          document.getElementById("atten").style.display='none';
@@ -52,7 +57,7 @@ use yii\db\Query;
 
 
                     <button type="button" id="noatten" data-url="<?=Url::to(['member/noattention','id'=>$data['id']])?>"
-                            onclick="compute2()" class='btn btn-success btn-feed j-feed' style="display: none;" >取消关注</button>
+                            onclick="compute2()" class='btn btn-danger j-feed' style="display: none;" >取消关注</button>
                      <script type="text/javascript">
                             function compute2(){
 
@@ -73,5 +78,11 @@ use yii\db\Query;
         </div>
 
     </div>
+    <?php if($data['id']==Yii::$app->user->identity->id){?>
+    <!-- 创建文章-->
+    <div class="panel a">
+        <a href="<?=\yii\helpers\Url::to(['post/create'])?>" class="btn btn-primary btn-quirk btn-block">创建文章</a>
+    </div>
+    <?php }?>
 </div>
 <?php endif;?>

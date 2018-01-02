@@ -20,6 +20,8 @@ return[
     'This username has already been taken.'=>'用户名已被注册。',
     'This email address has already been taken.'=>'邮箱已被注册。',
     'If you forgot your password you can reset it'=>'忘记密码？重设密码',
+    'Location'=>'所在地',
+    'Introduction'=>'简介',
 
     'ID'=>'编码',
     'Title'=>'标题',

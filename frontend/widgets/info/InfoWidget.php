@@ -41,12 +41,16 @@ class InfoWidget extends Widget{
             $result['id']=Yii::$app->user->identity->id;
             $result['username']=Yii::$app->user->identity->username;
             $result['email']=Yii::$app->user->identity->email;
+            $result['location']=Yii::$app->user->identity->location;
+            $result['introduction']=Yii::$app->user->identity->introduction;
             $result['sex']=Yii::$app->user->identity->sex?:-1;
         }else{
           $result['id']=$this->id;
             $info=UserModel::findOne(['id'=>$this->id]);
             $result['username']=$info->username;
             $result['email']=$info->email;
+            $result['location']=$info->location;
+            $result['introduction']=$info->introduction;
             $result['sex']=$info->sex?:-1;
             $att=FansModel::find()->where(['fans'=>Yii::$app->user->identity->id,'idol'=>$this->id])->all();
             //判断是否关注

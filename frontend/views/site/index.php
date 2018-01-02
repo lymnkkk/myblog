@@ -14,8 +14,10 @@ $this->title='博客-首页';
 ?>
 <div class="row">
     <div class="col-lg-9">
+        <div class="panel">
         <?=BannerWidget::widget()?>
-        <?=PostWidget::widget()?>
+        </div>
+        <?=PostWidget::widget(['page'=>false])?>
     </div>
     <div class="col-lg-3">
 

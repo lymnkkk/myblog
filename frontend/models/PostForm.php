@@ -2,10 +2,14 @@
 namespace  frontend\models;
 use common\models\PostModel;
 use common\models\RelationPostTagsModel;
+
 use yii\base\Model;
 use Yii;
 use yii\db\Exception;
 use yii\db\Query;
+use frontend\models\TagForm;
+
+
 
 /**
  * 文章表单模型
@@ -275,7 +279,7 @@ class PostForm extends Model{
     public function _eventAddTag($event)
     {
           //保存标签
-          $tag=new TagForm();
+          $tag=new \frontend\models\TagForm();
           $tag->tags=$event->data['tags'];
           $tagids=$tag->saveTags();
 
@@ -298,6 +302,22 @@ class PostForm extends Model{
                 }
 
            }
+    }
+
+    public function _eventdeleteTag($postid){
+        $relationtag=RelationPostTagsModel::findAll(['post_id'=>$postid]);
+
+        $tag=new \frontend\models\TagForm();
+
+        if($relationtag){
+
+            $amount = count($relationtag);  //得到标签数量
+
+            for($i=0;$i<$amount;$i++){
+                $tag_id= $relationtag[$i]->tag_id;  //得到标签id
+                $tag->deleteTag($tag_id);
+            }
+        }
     }
 
 

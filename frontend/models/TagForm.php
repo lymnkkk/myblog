@@ -61,4 +61,14 @@ class TagForm extends Model{
 
            return $res->id;
     }
+
+    public function deleteTag($tagid){
+        $model=new TagModel();
+        $res=$model->findOne(['id'=>$tagid]);
+        if($res->post_num==1){
+                $model->findOne(['id'=>$tagid])->delete();
+        }else if($res->post_num>1){
+            $model->post_num-=1;
+        }
+    }
 }

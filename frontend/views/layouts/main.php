@@ -30,7 +30,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => Yii::t('common','Blog'),
+        'brandLabel' => Yii::t('common','SC小圈'),
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -60,7 +60,7 @@ AppAsset::register($this);
               . Html::endForm()
               . '</li>';*/
         $rightItems[]=[
-                'label' => '<img src="'.Yii::$app->params['avatar']['smallhead'].'" alt="'.Yii::$app->user->identity->username.'">',
+                'label' => '<img src="'.Yii::$app->params['default_label_img'].'" alt="'.Yii::$app->user->identity->username.'">',
 
                // 'linkOptions'=>['data-method'=>'post'],
                'linkOptions'=>['class'=>'avatar'],

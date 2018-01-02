@@ -15,7 +15,7 @@ use yii\helpers\Html;
     <div class="row">
         <div class="col-lg-9">
 
-            <?=PostWidget::widget(['limit'=>6,'tag'=>$data['tagname']])?>
+            <?=PostWidget::widget(['title'=>'搜索结果','limit'=>6,'tag'=>$data['tagname']])?>
         </div>
         <div class="col-lg-3">
             <!-- 创建文章-->

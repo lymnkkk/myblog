@@ -50,7 +50,9 @@ class SiteController extends BaseController
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post'],
+                    '*'=>['get','post'],
                 ],
+
             ],
         ];
     }
@@ -96,8 +98,8 @@ class SiteController extends BaseController
                 'class' => 'common\widgets\file_upload\UploadAction',     //这里扩展地址别写错
                 'config' => [
                     //上传图片配置
-                    'imageUrlPrefix' => "", /* 图片访问路径前缀 */
-                    'imagePathFormat' => "/headimg/{yyyy}{mm}{dd}/{time}{rand:6}",
+//                    'imageUrlPrefix' => "", /* 图片访问路径前缀 */
+                    'imagePathFormat' => "/image/{yyyy}{mm}{dd}/{time}{rand:6}",
                 ]
             ],
 

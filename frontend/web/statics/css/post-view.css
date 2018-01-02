@@ -1,6 +1,10 @@
 /**
 文章列表组件css样式
  */
+.more{
+    color: #6c6a5a;
+    font-size: 12px;
+}
 .panel-body h1 {
     font-size: 18px;
     height: 30px;
@@ -28,7 +32,9 @@
     height: 150px;
     width: 100%;
 }
-
+.btn-default:hover{
+    opacity: 0.5;
+}
 .post-tags {
     color: #999;
     font-size: 12px;

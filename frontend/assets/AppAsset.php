@@ -21,6 +21,8 @@ class AppAsset extends AssetBundle
         'statics/css/chat-view.css',
         'statics/css/hot-view.css',
         'statics/css/tag-view.css',
+        'statics/css/search-view.css',
+        'statics/css/head.css',
     ];
     public $js = [
         'statics/js/site.js',

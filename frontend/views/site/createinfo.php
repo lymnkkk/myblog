@@ -25,11 +25,6 @@
             <?=$form->field($data,'email')->textinput(['maxlength'=>true])?>
             <?=$form->field($data,'username')->textinput(['maxlength'=>true])?>
             <?=$form->field($data, 'sex')->radioList(['1'=>'男','2'=>'女']) ?>
-            <?= $form->field($data, 'avatar')->widget('common\widgets\file_upload\FileUpload',[
-                'config'=>[
-
-                ]
-            ]) ?>
             <?=$form->field($data,'location')->textinput(['maxlength'=>true])?>
             <?=$form->field($data,'introduction')->textinput(['maxlength'=>true])?>
 

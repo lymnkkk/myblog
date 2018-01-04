@@ -6,7 +6,6 @@ use yii\widgets\LinkPager;
 <div class="panel">
 <div class="panel-title box-title" style="border-bottom:none">
     <span><strong>评论</strong></span>
-    <span class="pull-right"><a href="" class="more">更多>></a></span>
 </div>
 <div class="pannel-boy">
     <form id="w0" action="/" method="post">

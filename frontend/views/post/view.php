@@ -23,7 +23,7 @@
             <span>作者：<a href="<?=Url::to(['member/index','id'=>$data['user_id']])?>"><?=$data['user_name']?></a></span>
             <span>发布：<?=date('Y-m-d',$data['created_at'])?></span>
             <span>浏览：<?=isset($data['extend']['browser'])?$data['extend']['browser']:0?></span>
-            <span>id：<?=$data['id']?></span>
+            
         </div>
 
         <div class="page-content">

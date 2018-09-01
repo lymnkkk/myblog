@@ -53,7 +53,6 @@ class SearchPostWidget extends Widget{
         }
         else{
             //数据库匹配
-
             $curPage=Yii::$app->request->get('page',1);
             $cond="title like '%{$this->keyword}%' or content like '%{$this->keyword}%'";
             $res=PostForm::getList($cond,$curPage,$this->limit);

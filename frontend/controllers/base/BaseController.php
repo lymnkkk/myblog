@@ -10,6 +10,7 @@ class BaseController extends Controller{
 
     public function beforeAction($action)
     {
+        //父级检测
         if(!parent::beforeAction($action)){
             return false;
         }

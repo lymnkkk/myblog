@@ -46,6 +46,7 @@ class PostForm extends Model{
            self::SCENARIO_CREATE=>['title','content','label_img','cat_id','tags'],
            self::SCENARIO_UPDATE=>['title','content','label_img','cat_id','tags'],
        ];
+       //覆盖原先的使用场景
        return array_merge(parent::scenarios(),$scenarios);
     }
 
@@ -138,6 +139,7 @@ class PostForm extends Model{
             $transaction->commit();
             return true;
         }catch(\Exception $e){
+            //出现错误要回滚
             $transaction->rollBack();
             $this->_lastError=$e->getMessage();
             return false;

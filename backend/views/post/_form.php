@@ -16,7 +16,7 @@ use common\widgets\file_upload\FileUpload;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
     <p>
-    <a target="_blank"  href="<?='http://dracoooo.cn/'.$model['label_img']?>" ><img style="width:50%;height:50%;" src="<?='http://dracoooo.cn/'.$model['label_img'] ?>"></a>
+    <a target="_blank"  href="<?=$model['label_img']?>" ><img style="width:50%;height:50%;" src="<?=$model['label_img'] ?>"></a>
     </p>
 
     <?= Html::a(Yii::t('common','Delete Label Image'), ['deletelabelimg', 'id' => $model['id']], ['class' => 'btn btn-success']) ?>

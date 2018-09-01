@@ -39,9 +39,7 @@
             </div>
         </div>
 
-
         <?=ChatWidget::widget(['id'=>$data['id']])?>
-
 
 
     </div>
@@ -56,9 +54,6 @@
         </div>
         <!--标签云组件 -->
         <?=HotWidget::Widget()?>
-
-
-
      </div>
 </div>
 

@@ -10,7 +10,6 @@ use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 
-
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -47,7 +46,8 @@ AppAsset::register($this);
 
     ];
 
-    if (Yii::$app->user->isGuest) {//如果是游客
+    //如果是游客
+    if (Yii::$app->user->isGuest) {
         $rightItems[] = ['label' => Yii::t('common','Signup'), 'url' => ['/site/signup']];
         $rightItems[] = ['label' => Yii::t('common','Login'), 'url' => ['/site/login']];
     } else {
@@ -64,7 +64,7 @@ AppAsset::register($this);
 
                // 'linkOptions'=>['data-method'=>'post'],
                'linkOptions'=>['class'=>'avatar'],
-            'items'=>[
+               'items'=>[
                     [ 'label'=>'<i class="fa fa-cog"></i>   &nbsp; 账号设置', 'url'=>['/site/usersetting'], 'linkOptions'=>['data-method'=>'post'] ],
                     [ 'label'=>'<i class="fa fa-sign-out"></i>   &nbsp; 退出', 'url'=>['/site/logout'], 'linkOptions'=>['data-method'=>'post'] ],
 
@@ -78,6 +78,7 @@ AppAsset::register($this);
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
+        //关闭代码转码
         'encodeLabels'=>false,
         'items' => $rightItems,
     ]);

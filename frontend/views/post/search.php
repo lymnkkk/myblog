@@ -22,8 +22,6 @@ if(isset($_POST['q']))
     <div class="col-lg-9">
         <?=SearchWidget::widget()?>
         <?=SearchPostWidget::widget(['limit'=>6,'keyword'=>$_GET['q']])?>
-
-
     </div>
     <div class="col-lg-3">
         <!-- 创建文章-->

@@ -56,6 +56,7 @@ class TagForm extends Model{
                }
                return $model->id;
            }else{
+               //自动在原来的数据上加1
                $res->updateCounters(['post_num'=>1]);
            }
 

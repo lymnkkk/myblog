@@ -1,5 +1,10 @@
+## SC小圈
+
+---
+因服务器到期，之前的http:dracooo.cn网址失效，目前还未部署到新的服务器上。
 本网站采用的是YII2.0框架，YII2是一个基于PHP的MVC框架。如果想要了解，可以参考[文档](https://www.yiichina.com/doc)  
 网站分为前台和后台管理，前台的入口文件是frontend/web/index.php，后台的入口文件是backend/web/index.php
+
 
 文件的基本结构
 ```
